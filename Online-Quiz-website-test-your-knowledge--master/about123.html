@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CyberWise Academy — Learn. Protect. Evolve.</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="front_css.css">
+  <link rel="stylesheet" href="contact.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="images/1_quiz logo.jpg" type="image/icon type">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
+      color: #e0e0e0;
+    }
+
+    #navbar {
+      overflow: hidden;
+      background-color: rgba(20, 20, 20, 0.95);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    #navbar a {
+      color: #ddd;
+      text-decoration: none;
+      padding: 14px 20px;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #navbar a:hover,
+    #navbar .active {
+      background: #2196f3;
+      color: white;
+      border-radius: 4px;
+    }
+
+    .intro {
+      max-width: 900px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+    }
+
+    .intro h1 {
+      color: #00c3ff;
+      margin-bottom: 15px;
+    }
+
+    .intro p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    #front1, #front2 {
+      width: 45%;
+      max-width: 300px;
+      border-radius: 12px;
+      margin: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    #front1:hover, #front2:hover {
+      transform: scale(1.05);
+    }
+
+    .contact-me {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 50px 20px;
+      border-top: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-me .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1000px;
+      margin: 0 auto;
+      gap: 30px;
+    }
+
+    .contact-me .info {
+      flex: 1 1 45%;
+    }
+
+    .contact-me .info h2 {
+      color: #00c3ff;
+      margin-bottom: 10px;
+    }
+
+    .contact-me .paragrph,
+    .contact-me .paragrph1 {
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .contact-me .form {
+      flex: 1 1 45%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-me .form label {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    .contact-me .form input,
+    .contact-me .form textarea {
+      padding: 10px;
+      border: 1px solid #333;
+      border-radius: 6px;
+      background: #1a1a1a;
+      color: #ddd;
+    }
+
+    .contact-me .form input[type="submit"] {
+      margin-top: 15px;
+      background: #2196f3;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-me .form input[type="submit"]:hover {
+      background: #0d8ddb;
+    }
+
+    .footer {
+      background: #111;
+      padding: 20px 0;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    .footer .container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1000px;
+      margin: auto;
+      align-items: center;
+    }
+
+    .footer ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer ul li a {
+      color: #aaa;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    .footer ul li a:hover {
+      color: #00c3ff;
+    }
+
+    .bigThink {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .bigThink a {
+      color: #2196f3;
+      text-decoration: none;
+    }
+
+    .bigThink button {
+      margin-left: 15px;
+      background: transparent;
+      border: 1px solid #2196f3;
+      color: #2196f3;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .bigThink button:hover {
+      background: #2196f3;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="navbar">
+    <a class="active" href="index.html">Home</a>
+    <a href="1topics.html">Topics</a>
+    <a href="javascript:void(0)" onclick="scrollToBottom()">Contact</a>
+    <a href="index1.html" style="margin-left:auto;"><i class="fa fa-user-circle-o" aria-hidden="true"></i> About</a>
+  </div>
+
+  <div class="intro">
+    <h1>Welcome to CyberWise Academy</h1>
+    <p>
+      At CyberWise Academy, we believe that cybersecurity knowledge should be accessible, engaging, and practical.
+      Our platform offers interactive quizzes and bite-sized lessons designed to help individuals and businesses stay
+      informed and protected in the digital world.
+      Whether you're just starting or want to sharpen your skills — we make learning easy and fun.
+    </p>
+  </div>
+
+  <div style="text-align:center;">
+    <a href="1topics.html"><img id="front1" src="images/4_My Post.jpg" alt="Explore Topics"></a>
+    <a href="1topics.html"><img id="front2" src="images/2_let's do.jpg" alt="Start Learning"></a>
+  </div>
+
+  <div class="contact-me" id="contact">
+    <div class="container">
+      <div class="info">
+        <h2>Contact Us</h2>
+        <p class="paragrph">
+          Your cybersecurity is important to us! If you have questions, suggestions, or need help — don’t hesitate to reach out.
+        </p>
+        <address class="paragrph1">
+          Contact us today and our specialists will assist you with any security-related queries.
+        </address>
+        <p class="paragrph">
+          <strong>Email:</strong>&nbsp<a href="mailto:nirbhaynarayansingh807@gmail.com"><button><span class="material-icons">email</span></button></a><br>
+          <strong>Phone:</strong>&nbsp<a href="tel:8290708303"><button><span class="material-icons">call</span></button></a>
+        </p>
+      </div>
+      <form class="form">
+        <label>Name *</label>
+        <input type="text" name="Name" placeholder="Your Name">
+        <label>Email Address *</label>
+        <input type="email" name="Email Address" placeholder="Your Email Address">
+        <label>Message *</label>
+        <textarea name="Message" rows="10" placeholder="Your Message"></textarea>
+        <input type="submit" value="Contact Me">
+      </form>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div>
+        <span>© 2025 CyberWise Academy</span>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/nirbhay-narayan-singh-585560183/" target="_blank"><i class="fa fa-fw fa-linkedin"></i></a></li>
+          <li><a href="https://github.com/nns15899" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+          <li><a href="https://twitter.com/Nirbhay0376939" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+          <li><a href="mailto:nns15899@gmail.com"><i class="fa fa-fw fa-envelope"></i></a></li>
+        </ul>
+      </div>
+      <div class="bigThink">
+        <h4>Big thanks to my friend who always supports me</h4>
+        <a href="http://anandprabhakarofficial.firebaseapp.com" target="_blank">Bekmurad Nuras</a>
+        <button onclick="scrollToTop()">Scroll to Top</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const scrollingElement = (document.scrollingElement || document.body);
+    function scrollToBottom() {
+      scrollingElement.scrollTop = scrollingElement.scrollHeight;
+    }
+    function scrollToTop() {
+      scrollingElement.scrollTop = 0;
+    }
+  </script>
+
+</body>
+
+</html>

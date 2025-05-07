@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberWise Scenario Quiz 1</title>
+  <style>
+    body {
+      background: #000;
+      color: #00ffc6;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .quiz-container {
+      max-width: 600px;
+      text-align: center;
+    }
+    .choice-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00ffc6;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .choice-btn:hover {
+      background-color: #008c7e;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1 id="question">Welcome to CyberWise Academy!</h1>
+  <div id="choices"></div>
+  <form id="resultForm" action="/submit_quiz" method="POST" style="display:none;">
+    <input type="hidden" name="score" id="finalScore">
+    <button type="submit" class="choice-btn">Сохранить результат</button>
+  </form>
+</div>
+
+<script>
+let totalScore = 0;
+
+const questions = {
+  start: {
+    text: "Вы получили подозрительное письмо с ссылкой. Что делать?",
+    choices: [
+      { text: "Перейти по ссылке.", next: "A", points: 0 },
+      { text: "Проверить письмо и отправителя.", next: "B", points: 5 },
+      { text: "Удалить письмо.", next: "C", points: 10 }
+    ]
+  },
+  A: {
+    text: "Вы перешли по ссылке и попали на фишинговую страницу. Что делать?",
+    choices: [
+      { text: "Заполнить форму.", next: "D", points: 0 },
+      { text: "Сообщить IT-отделу.", next: "E", points: 10 }
+    ]
+  },
+  B: {
+    text: "Вы проверили письмо, оно подозрительное. Как поступить?",
+    choices: [
+      { text: "Открыть письмо.", next: "F", points: 0 },
+      { text: "Удалить и сообщить IT.", next: "E", points: 10 }
+    ]
+  },
+  C: {
+    text: "Вы удалили письмо. Как поступить далее?",
+    choices: [
+      { text: "Сообщить IT-отделу.", next: "E", points: 10 },
+      { text: "Игнорировать.", next: "G", points: 0 }
+    ]
+  },
+  D: {
+    text: "Вы заполнили форму на фишинговом сайте. Что делать?",
+    choices: [
+      { text: "Сообщить IT-отделу.", next: "H", points: 10 },
+      { text: "Игнорировать.", next: "I", points: 0 }
+    ]
+  },
+  E: {
+    text: "Вы сообщили IT. Какие следующие действия?",
+    choices: [
+      { text: "Провести тренинг для коллег.", next: "J", points: 10 },
+      { text: "Ждать решения IT.", next: "K", points: 5 }
+    ]
+  },
+  F: {
+    text: "Вы открыли письмо. Ваши действия?",
+    choices: [
+      { text: "Игнорировать и продолжить работать.", next: "L", points: 0 },
+      { text: "Сообщить IT.", next: "H", points: 10 }
+    ]
+  },
+  G: {
+    text: "Вы проигнорировали письмо. Что делать, если утечка данных произошла?",
+    choices: [
+      { text: "Признать ошибку и помочь расследованию.", next: "M", points: 10 },
+      { text: "Игнорировать.", next: "N", points: 0 }
+    ]
+  },
+  H: { text: "IT-отдел справился с инцидентом. Итоговый балл:", choices: [] },
+  I: { text: "Невнимательность привела к утечке данных. Итоговый балл:", choices: [] },
+  J: { text: "Тренинг спас ситуацию, компания защищена. Итоговый балл:", choices: [] },
+  K: { text: "IT-решение было недостаточно эффективным. Итоговый балл:", choices: [] },
+  L: { text: "Без действий произошло заражение. Итоговый балл:", choices: [] },
+  M: { text: "Вы помогли расследованию. Итоговый балл:", choices: [] },
+  N: { text: "Игнорирование привело к большему ущербу. Итоговый балл:", choices: [] }
+};
+
+function showQuestion(key) {
+  const question = questions[key];
+  document.getElementById('question').innerText = question.text;
+  const choicesDiv = document.getElementById('choices');
+  choicesDiv.innerHTML = "";
+
+  if (question.choices.length === 0) {
+    document.getElementById('question').innerText += totalScore + " points.";
+    document.getElementById('finalScore').value = totalScore;
+    document.getElementById('resultForm').style.display = 'block';
+    return;
+  }
+
+  question.choices.forEach(choice => {
+    const btn = document.createElement('button');
+    btn.innerText = choice.text;
+    btn.className = "choice-btn";
+    btn.onclick = (e) => {
+      e.preventDefault();
+      totalScore += choice.points;
+      showQuestion(choice.next);
+    };
+    choicesDiv.appendChild(btn);
+  });
+}
+
+showQuestion('start');
+</script>
+
+</body>
+</html>

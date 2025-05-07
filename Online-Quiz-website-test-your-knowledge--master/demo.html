@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberWise Scenario Quiz</title>
+  <style>
+    body {
+      background: #000;
+      color: #00ffc6;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .quiz-container {
+      max-width: 600px;
+      text-align: center;
+    }
+    .choice-btn {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #00ffc6;
+      color: black;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .choice-btn:hover {
+      background-color: #008c7e;
+    }
+  </style>
+</head>
+<body>
+
+<div class="quiz-container">
+  <h1 id="question">Welcome to CyberWise Academy!</h1>
+  <div id="choices"></div>
+  <form id="resultForm" action="/submit_quiz" method="POST" style="display:none;">
+    <input type="hidden" name="score" id="finalScore">
+    <button type="submit" class="choice-btn">Сохранить результат</button>
+  </form>
+</div>
+
+<script>
+let totalScore = 0;
+
+const questions = {
+  start: {
+    text: "You find a USB drive near the office. What will you do?",
+    choices: [
+      { text: "Plug it into your PC to check.", next: "A", points: 0 },
+      { text: "Give it to IT for inspection.", next: "B", points: 10 },
+      { text: "Leave it where it was.", next: "C", points: 5 }
+    ]
+  },
+  A: {
+    text: "The USB contained unknown files. What's next?",
+    choices: [
+      { text: "Open them immediately.", next: "D", points: 0 },
+      { text: "Run antivirus first.", next: "D", points: 5 },
+      { text: "Disconnect your PC from the network.", next: "D", points: 10 }
+    ]
+  },
+  B: {
+    text: "IT thanks you. Later, you get a suspicious email. Your move?",
+    choices: [
+      { text: "Click the link to investigate.", next: "E", points: 0 },
+      { text: "Report to IT immediately.", next: "E", points: 10 },
+      { text: "Delete without reading.", next: "E", points: 5 }
+    ]
+  },
+  C: {
+    text: "Another person picks it up. Later you see him infected. Your reaction?",
+    choices: [
+      { text: "Warn others and the IT department.", next: "F", points: 10 },
+      { text: "Do nothing.", next: "F", points: 0 },
+      { text: "Share info only with friends.", next: "F", points: 5 }
+    ]
+  },
+  D: {
+    text: "Your PC shows strange behavior. What do you do?",
+    choices: [
+      { text: "Keep working, ignoring the problem.", next: "G", points: 0 },
+      { text: "Run a full malware scan.", next: "H", points: 5 },
+      { text: "Shut it down and call IT.", next: "I", points: 10 }
+    ]
+  },
+  E: {
+    text: "The email was part of a phishing campaign. How do you help the company?",
+    choices: [
+      { text: "Inform colleagues to prevent it.", next: "J", points: 10 },
+      { text: "Let IT handle it silently.", next: "K", points: 5 },
+      { text: "Ignore and continue working.", next: "L", points: 0 }
+    ]
+  },
+  F: {
+    text: "The infection spreads. Your security advice?",
+    choices: [
+      { text: "Educate the team about USB safety.", next: "M", points: 10 },
+      { text: "Install extra antivirus tools.", next: "N", points: 5 },
+      { text: "Suggest turning off USB ports.", next: "O", points: 0 }
+    ]
+  },
+  G: { text: "You ignored the problem. Your device was fully compromised. Final score: ", choices: [] },
+  H: { text: "Your quick reaction saved most of your data. Final score: ", choices: [] },
+  I: { text: "You stopped the attack in time. Final score: ", choices: [] },
+  J: { text: "Your awareness saved the whole office. Final score: ", choices: [] },
+  K: { text: "Damage control was decent but not perfect. Final score: ", choices: [] },
+  L: { text: "Phishing attack succeeded on multiple people. Final score: ", choices: [] },
+  M: { text: "Your training improved the company's cyber defense. Final score: ", choices: [] },
+  N: { text: "Some protection was added, but damage was done. Final score: ", choices: [] },
+  O: { text: "Unplugging USBs is not enough. Security requires training. Final score: ", choices: [] }
+};
+
+function showQuestion(key) {
+  const question = questions[key];
+  document.getElementById('question').innerText = question.text;
+  const choicesDiv = document.getElementById('choices');
+  choicesDiv.innerHTML = "";
+
+  if (question.choices.length === 0) {
+    document.getElementById('question').innerText += totalScore + " points.";
+    document.getElementById('finalScore').value = totalScore;
+    document.getElementById('resultForm').style.display = 'block';
+    return;
+  }
+
+  question.choices.forEach(choice => {
+    const btn = document.createElement('button');
+    btn.innerText = choice.text;
+    btn.className = "choice-btn";
+    btn.onclick = (e) => {
+      e.preventDefault();
+      totalScore += choice.points;
+      showQuestion(choice.next);
+    };
+    choicesDiv.appendChild(btn);
+  });
+}
+
+showQuestion('start');
+</script>
+
+</body>
+</html>

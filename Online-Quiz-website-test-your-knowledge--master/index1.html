@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberWise Academy</title>
+    <link rel="icon" href="images/1_quiz logo.jpg" type="image/icon type">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #0f0f0f;
+            color: #e0e0e0;
+        }
+
+        .main-container {
+            width: 90%;
+            margin: auto;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(20, 20, 20, 0.9);
+            padding: 15px 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #00c3ff;
+            font-weight: bold;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #ffffff;
+        }
+
+        .image-container {
+            text-align: center;
+            margin: 60px 0 30px 0;
+        }
+
+        .banner-title {
+            font-size: 40px;
+            font-weight: bold;
+            color: #00c3ff;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .sub-title {
+            margin-top: 15px;
+            font-size: 18px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .skill-heading {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .skill-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #00c3ff;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 20px auto;
+            width: 60%;
+        }
+
+        .skill-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .skill1 {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .skill1:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill1 img {
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        #skill-text {
+            font-size: 15px;
+            color: #dddddd;
+        }
+
+        .portfolio-heading {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .portfolio-title {
+            font-size: 30px;
+            color: #00c3ff;
+            margin-bottom: 10px;
+        }
+
+        .academy-section {
+            display: flex;
+            justify-content: center;
+            margin: 30px auto;
+        }
+
+        .academy-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(6px);
+            color: #e0e0e0;
+            padding: 30px 40px;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            line-height: 1.8;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .academy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        .academy-card h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .academy-card p {
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <div class="flex-container">
+            <div class="menu"><a href="index.html">Главная</a></div>
+            <div class="menu"><a href="About.html">Контакты</a></div>
+        </div>
+
+        <div class="image-container">
+            <div class="banner-title">CyberWise Academy</div>
+            <div class="sub-title">
+                Мы классифицируем киберугрозы для организаций по трем основным категориям, в зависимости от их частотности и уровня опасности: массовые, маскирующиеся и сложные (или целевые) атаки. Эти угрозы включают всё — от вирусов-шифровальщиков до шпионских программ. Каждая из них представляет опасность для бизнеса, и, независимо от того, насколько ваша организация защищена, важно быть готовыми к любому развитию событий и иметь возможность оперативно усилить защиту.
+            </div>
+        </div>
+
+        <div class="skill-heading">
+            <div class="skill-title">Наши цели:</div>
+        </div>
+        <hr>
+
+        <div class="skill-container">
+            <div class="skill1">
+                <img src="images/lock.png" alt="Lock Icon">
+                <div id="skill-text">
+                    Повышение киберосведомлённости — помочь сотрудникам распознавать угрозы и действовать безопасно.
+                </div>
+            </div>
+
+            <div class="skill1">
+                <img src="images/brain.png" alt="Brain Icon">
+                <div id="skill-text">
+                    Упростить обучение — сделать информационную безопасность понятной и доступной для всех.
+                </div>
+            </div>
+
+            <div class="skill1">
+                <img src="images/radio.png" alt="Radio Icon">
+                <div id="skill-text">
+                    Предотвращать инциденты — сократить количество ошибок за счёт постоянного обучения и тестирования.
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-heading">
+            <div class="portfolio-title">О CyberWise Academy:</div>
+        </div>
+        <hr>
+
+        <div class="academy-section">
+            <div class="academy-card">
+                <h2>CyberWise Academy — Учись. Защищай. Развивайся.</h2>
+                <p>CyberWise Academy — это онлайн-платформа для обучения, созданная, чтобы дать бизнесу и людям знания и навыки для безопасной работы в цифровом мире.</p>
+                <p>Наша миссия проста: создать безопасную цифровую среду, обучая вашу команду через интерактивные квизы, реальные примеры и понятные уроки.</p>
+                <p>От управления паролями и распознавания фишинга до безопасного серфинга и защиты от социальной инженерии — мы помогаем формировать устойчивые киберпривычки и превращаем сотрудников в первую линию обороны.</p>
+                <p>Будь вы стартап или международная компания, CyberWise Academy поможет укрепить ваш человеческий "фаервол" и сформировать культуру проактивной безопасности.</p>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
